@@ -1,8 +1,8 @@
 <?php
 $sql = '';
-if(count($keresleves) > 1){
-    if(is_int(intval($keresleves))){
-        $sql = 'DELETE FROM levesek WHERE megjegyzes=' .$keresleves[1];
+if(count($keresLeves) > 1){
+    if(is_int(intval($keresLeves))){
+        $sql = 'DELETE FROM levesek WHERE megnevezes=' . $keresLeves[1];
     }else{
         http_response_code(404);
         echo 'Nem létező futár';

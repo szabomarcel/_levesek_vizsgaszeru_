@@ -15,20 +15,20 @@
         <!--Navbar start-->
         <nav class="navbar navbar-expand-sm navbar-light" id="neubar">
             <div class="container">
-                <h1>Futárok nyilvántartása</h1>
+                <h1>Levesek nyilvántartása</h1>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class=" collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ms-auto ">
-                  <li class="nav-item">
-                    <a class="nav-link mx-2" href="http://localhost/_pizza_futar_vizsgaszeru_/frontendpizza/pizza.html">Ügyfelek</a>
+                  <!--<li class="nav-item">
+                    <a class="nav-link mx-2" href="http://localhost/_levesek_vizsgaszeru_/frontendleves/index.html">Ügyfelek</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link mx-2" href="http://localhost/_pizza_futar_vizsgaszeru_/frontendpizza/pizza.html">Pizzák</a>
-                  </li>
+                    <a class="nav-link mx-2" href="http://localhost/_levesek_vizsgaszeru_/frontendleves/index.html">Pizzák</a>
+                  </li>-->
                   <li class="nav-item">
-                    <a class="nav-link mx-2 active" aria-current="page" href="http://localhost/_pizza_futar_vizsgaszeru_/frontendpizza/pizza.html">Futárok</a>
+                    <a class="nav-link mx-2 active" aria-current="page" href="http://localhost/_levesek_vizsgaszeru_/frontendleves/index.html">Levesek</a>
                   </li>
                 </ul>
               </div>
@@ -36,22 +36,22 @@
           </nav>
         <!--Navbar end-->
         <div class="container">
-            <form action="#" method="POST" class="row" id="futarForm">
+            <form action="#" method="POST" class="row" id="levesForm">
                 <fieldset>
                     <div class="row">
                         <div class="row">
                             <div class="mb-3 col-12">
-                                <label for="megjegyzes" class="form-label">Megjegyzés: </label>
-                                <input type="text" class="form-control" id="megjegyzes" name="megjegyzes" numeric required>
+                                <label for="megnevezes" class="form-label">Megnevezés: </label>
+                                <input type="text" class="form-control" id="megnevezes" name="megnevezes" numeric required>
                             </div>                        
                         </div>
                         <div class="mb-3 col-4">
                             <label for="kaloria" class="form-label">Kaloria: </label>
-                            <input type="number" class="form-control" id="kaloria" name="kaloria" numeric required>
+                            <input type="text" class="form-control" id="kaloria" name="kaloria" numeric required>
                         </div>
                         <div class="mb-3 col-4">
                             <label for="feherje" class="form-label">Fehérje: </label>
-                            <input type="number" class="form-control" id="feherje" name="feherje" required>
+                            <input type="text" class="form-control" id="feherje" name="feherje" required>
                         </div>
                         <div class="mb-3 col-4">
                             <label for="zsir" class="form-label">Zsír: </label>
@@ -61,7 +61,7 @@
                     <div class="row">
                         <div class="mb-3 col-4">
                             <label for="szenhidrat" class="form-label">Szénhidrát: </label>
-                            <input type="number" class="form-control" id="szenhidrat" name="szenhidrat" numeric required>
+                            <input type="text" class="form-control" id="szenhidrat" name="szenhidrat" numeric required>
                         </div>
                         <div class="mb-3 col-4">
                             <label for="hamu" class="form-label">Hamu: </label>
@@ -69,7 +69,7 @@
                         </div>
                         <div class="mb-3 col-4">
                             <label for="rost" class="form-label">Rost: </label>
-                            <input type="number" class="form-control" id="rost" name="rost" required>
+                            <input type="text" class="form-control" id="rost" name="rost" required>
                         </div>
                     </div>
                 </fieldset>

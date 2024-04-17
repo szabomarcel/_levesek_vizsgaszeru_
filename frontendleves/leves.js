@@ -5,9 +5,9 @@ document.addEventListener("DOMContentLoaded", function(){
     const selectButton = document.getElementById("select");
 
     createButton.addEventListener("click", async function () {
-        let fazon = document.createElement("fazon").value;
-        const baseUrl ="http://localhost/_levesek_vizsgaszeru_/backendleves/index.php?leves/" + megjegyzes;
-        const formdata = new FormData(document.getElementById("futarForm"));
+        let megnevezes = document.createElement("megnevezes").value;
+        const baseUrl ="http://localhost/_levesek_vizsgaszeru_/backendleves/index.php?leves/" + megnevezes;
+        const formdata = new FormData(document.getElementById("levesForm"));
         let options = {
             method: "POST",
             mode: "cors",
@@ -23,9 +23,9 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 
     updateButton.addEventListener("click", async function(){        
-        const baseUrl ="http://localhost/_levesek_vizsgaszeru_/backendleves/index.php?leves/" + megjegyzes;
+        const baseUrl ="http://localhost/_levesek_vizsgaszeru_/backendleves/index.php?leves/" + megnevezes;
         let object = {
-            megjegyzes: document.getElementById("megjegyzes").value,
+            megnevezes: document.getElementById("megnevezes").value,
             kaloria: document.getElementById("kaloria").value,
             feherje: document.getElementById("feherje").value,
             zsir: document.getElementById("zsir").value,
@@ -52,26 +52,25 @@ document.addEventListener("DOMContentLoaded", function(){
         let response = await fetch(baseUrl, options);
         if(response.ok){
             let data = await response.json();
-            futarListazas(data);
+            levesListazas(data);
         }else{
             console.error("Hiba a szerver válaszában");
         }
-
     });
 
-    function futarListazas(levesek){
+    function levesListazas(levesek){
         let levesDiv = document.getElementById("leveleslista");
-        let tablazat = futarFejlec();
+        let tablazat = levesFejlec();
         for(let leves of levesek){
-            tablazat += futarSor(leves);
+            tablazat += levesSor(leves);
         }
         levesDiv.innerHTML = tablazat + "</tbody></tbody>";
         return levesDiv;
     };
 
-    function futarSor(leves){
+    function levesSor(leves){
         let sor = `<tr>
-        <td>${leves.megjegyzes}</td>
+        <td>${leves.megnevezes}</td>
         <td>${leves.kaloria}</td>
         <td>${leves.feherje}</td>
         <td>${leves.zsir}</td>
@@ -79,18 +78,18 @@ document.addEventListener("DOMContentLoaded", function(){
         <td>${leves.hamu}</td>
         <td>${leves.rest}</td>
         <td>
-            <button type="button" class="btn btn-outline-secondary" onclick="adatBetoltes(${leves.megjegyzes}, '${leves.kaloria}', '${leves.feherje}', '${leves.zsir}, '${leves.szenhidrat}', '${leves.hamu}', ${leves.rost})"><i class="fa-regular fa-hand-point-left"></i>Kiválasztás</button>
-            <button type="button" class="btn btn-outline-secondary" onclick="adatTorles(${futar.megjegyzes}"><i class="fa-solid fa-trash"></i>Törlés</button>
+            <button type="button" class="btn btn-outline-secondary" onclick="adatBetoltes(${leves.megnevezes}, '${leves.kaloria}', '${leves.feherje}', '${leves.zsir}, '${leves.szenhidrat}', '${leves.hamu}', ${leves.rost})"><i class="fa-regular fa-hand-point-left"></i>Kiválasztás</button>
+            <button type="button" class="btn btn-outline-secondary" onclick="adatTorles(${futar.megnevezes}"><i class="fa-solid fa-trash"></i>Törlés</button>
         </td>
         </tr>`;
         return sor;
     };
 
-    function futarFejlec(){
+    function levesFejlec(){
         let fejlec = `<table class="table table-striped">
         <thead>
             <tr>
-                <th>Megjegyzés: </th>
+                <th>Megnevezes: </th>
                 <th>Kalória: </th>
                 <th>Fehérje: </th>
                 <th>Zsir: </th>
@@ -106,14 +105,14 @@ document.addEventListener("DOMContentLoaded", function(){
     
 });
 
-function adatBetoltes(megjegyzes, kaloria, feherje, zsir, szenhidrat, hamu, rost){
-    let baseUrl="http://localhost/_levesek_vizsgaszeru_/backendleves/index.php?leves/" + megjegyzes;
+function adatBetoltes(megnevezes, kaloria, feherje, zsir, szenhidrat, hamu, rost){
+    let baseUrl="http://localhost/_levesek_vizsgaszeru_/backendleves/index.php?leves/" + megnevezes;
     let options={
         method: "GET",
         mode: "cors"
     };
     let response= fetch(baseUrl, options)
-    document.getElementById("megjegyzes").value=megjegyzes;
+    document.getElementById("megnevezes").value=megnevezes;
     document.getElementById("kaloria").value=kaloria;
     document.getElementById("feherje").value=feherje;
     document.getElementById("zsir").value=zsir;
@@ -129,8 +128,8 @@ function adatBetoltes(megjegyzes, kaloria, feherje, zsir, szenhidrat, hamu, rost
     });
 }
 
-function adatTorles(fazon){
-    let baseUrl="http://localhost/_levesek_vizsgaszeru_/backendleves/index.php?leves/" + megjegyzes;
+function adatTorles(megnevezes){
+    let baseUrl="http://localhost/_levesek_vizsgaszeru_/backendleves/index.php?leves/" + megnevezes;
     let options={
         method: "DELETE",
         mode: "cors"

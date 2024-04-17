@@ -1,0 +1,21 @@
+html{
+    background-image: url(https://husosetelek.hu/wp-content/uploads/gulyasleves-825x510.jpg);
+    display:flex;
+    justify-content: center; /* Vízszintesen középre igazítás */
+    align-items: center; /* Függőlegesen középre igazítás */
+    height: 100vh;
+}
+
+form{
+    background-color:wheat;
+}
+
+.container{
+    background-color:grey;
+    color: beige;
+    /*display: flex;*/
+}
+
+fieldset{
+    background-color: seagreen;
+}
